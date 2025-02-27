@@ -5,10 +5,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Materia {
+@Table(name = "materia")
+public class materia {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
+    @Column(nullable = false)
     private String nombre;
 }
