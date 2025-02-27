@@ -5,15 +5,10 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Alumno {
+public class Materia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
-    private String apellido;
-
-    @ManyToOne
-    @JoinColumn(name = "id_materia")
-    private Materia materia;
 }
