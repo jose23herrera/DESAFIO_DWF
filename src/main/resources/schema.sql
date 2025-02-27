@@ -1,27 +1,22 @@
 --
--- Tablas de la base de datos: `guia_jpa`
+-- Tablas de la base de datos: `DESAFIO_DWF`
 --
 
 -- ----------------------------------------------------------------
 --  TABLE POST
 -- ----------------------------------------------------------------
-CREATE TABLE POST (
-    ID INT NOT NULL,
-    TITLE VARCHAR(1000) NOT NULL,
-	POST_DATE DATE NOT NULL,
-    PRIMARY KEY (ID)
+DROP TABLE IF EXISTS alumno;
+DROP TABLE IF EXISTS materia;
+
+CREATE TABLE materia (
+                         id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                         nombre VARCHAR(100) NOT NULL
 );
 
--- ----------------------------------------------------------------
---  TABLE POST_COMMENT
--- ----------------------------------------------------------------
-CREATE TABLE POST_COMMENT (
-    ID INT NOT NULL,
-    REVIEW VARCHAR(1000) DEFAULT NULL,
-	COMMENT_DATE DATE NOT NULL,
-    POST_ID INT DEFAULT NULL,
-    PRIMARY KEY(ID),
-    CONSTRAINT FK_POST_COMMENT_POST_ID
-        FOREIGN KEY (POST_ID)
-            REFERENCES POST(ID)
+CREATE TABLE alumno (
+                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                        nombre VARCHAR(100) NOT NULL,
+                        apellido VARCHAR(100) NOT NULL,
+                        id_materia BIGINT,
+                        FOREIGN KEY (id_materia) REFERENCES materia(id)
 );
